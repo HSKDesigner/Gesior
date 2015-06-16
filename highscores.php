@@ -66,7 +66,7 @@ $main_content .= '<TABLE BORDER=0 CELLPADDING=4 CELLSPACING=1 WIDTH=100%></TABLE
                 <span class="CaptionEdgeRightTop" style="background-image:url(./layouts/tibiarl/images/content/box-frame-edge.gif)"></span>
                 <span class="CaptionBorderTop" style="background-image:url(./layouts/tibiarl/images/content/table-headline-border.gif)"></span>
                 <span class="CaptionVerticalLeft" style="background-image:url(./layouts/tibiarl/images/content/box-frame-vertical.gif)"></span>
-                <div class="Text" style="font-size:12pt;">Ranking for '.htmlspecialchars($list_name).' on '.htmlspecialchars($world_name).'</div>
+                <div class="Text" style="font-size:12pt;">Ranking for '.htmlspecialchars($list_name).' on '.htmlspecialchars($world_name).'.</div>
 <span class="CaptionVerticalRight" style="background-image:url(./layouts/tibiarl/images/content/box-frame-vertical.gif)"></span>
 <span class="CaptionBorderBottom" style="background-image:url(./layouts/tibiarl/images/content/table-headline-border.gif)"></span>
 <span class="CaptionEdgeLeftBottom" style="background-image:url(./layouts/tibiarl/images/content/box-frame-edge.gif)"></span>
@@ -87,6 +87,7 @@ $main_content .= '<TABLE BORDER=0 CELLPADDING=4 CELLSPACING=1 WIDTH=100%></TABLE
 <td style="text-align:center;width:10%;">Level
 
 </td>';
+
 if($list == "experience")
 	$main_content .= '<td style="text-align:left;width:10%">Experience</td>';
 //$main_content .= '</TR><TR>';
@@ -141,31 +142,98 @@ $main_content .= '</TABLE></TD><TD WIDTH=5%></TD><TD WIDTH=15% VALIGN=top ALIGN=
 											<div class="TableContentAndRightShadow" style="background-image:url(./layouts/tibiarl/images/content/table-shadow-rm.gif);">
 												<div class="TableContentContainer">
 													<table class="TableContent" width="100%">
-														<tbody><tr style="background-color:'.$config['site']['lightborder'].';">
-															<td class="LabelV"><A HREF="?subtopic=highscores&list=experience">Experience</a></td>
+														<tbody>';
+														if($list == "experience")
+														$main_content .= '<tr style="background-color:'.$config['site']['lightborder'].';">
+															<td class="LabelV">Experi... <img src="images/tick.png" width="12" height="12"></td>
 															
-														</tr>
-														<tr style="background-color:'.$config['site']['darkborder'].';">
-															<td class="LabelV"><A HREF="?subtopic=highscores&list=magic">Magic</a></td>
+														</tr>';
+														else
+														$main_content .= '<tr style="background-color:'.$config['site']['lightborder'].';">
+															<td class="LabelV"><A HREF="?subtopic=highscores&list=experience&vocation='.$vocation.'">Experience</a></td>
 															
-														</tr>
-														<tr style="background-color:'.$config['site']['lightborder'].';">
-															<td class="LabelV"><A HREF="?subtopic=highscores&list=shield">Shielding</a></td>
-																
-														</tr>
-														<tr style="background-color:'.$config['site']['darkborder'].';">
-															<td class="LabelV"><A HREF="?subtopic=highscores&list=distance">Distance</a></td>
+														</tr>';
+														if($list == "magic")
+														$main_content .= '<tr style="background-color:'.$config['site']['darkborder'].';">
+															<td class="LabelV">Magic <img src="images/tick.png" width="12" height="12"></td>
 															
-														</tr>
-														<tr style="background-color:'.$config['site']['lightborder'].';">
-															<td class="LabelV"><A HREF="?subtopic=highscores&list=club">Club</a></td>
+														</tr>';
+														else
+														$main_content .= '<tr style="background-color:'.$config['site']['darkborder'].';">
+															<td class="LabelV"><A HREF="?subtopic=highscores&list=magic&vocation='.$vocation.'">Magic</a></td>
 															
-														</tr>
-														<tr style="background-color:'.$config['site']['darkborder'].';"><td class="LabelV"><A HREF="?subtopic=highscores&list=sword">Sword</a></td></tr>
-<tr style="background-color:'.$config['site']['lightborder'].';"><td class="LabelV"><A HREF="?subtopic=highscores&list=axe">Axe</a></td></tr>
-<tr style="background-color:'.$config['site']['darkborder'].';"><td class="LabelV"><A HREF="?subtopic=highscores&list=fist">Fist</a></td></tr>
-<tr style="background-color:'.$config['site']['lightborder'].';"><td class="LabelV"><A HREF="?subtopic=highscores&list=fishing">Fishing</a></td></tr>
-
+														</tr>';
+														if($list == "shield")
+														$main_content .= '<tr style="background-color:'.$config['site']['lightborder'].';">
+															<td class="LabelV">Shield... <img src="images/tick.png" width="12" height="12"></td>
+															
+														</tr>';
+														else
+														$main_content .= '<tr style="background-color:'.$config['site']['lightborder'].';">
+															<td class="LabelV"><A HREF="?subtopic=highscores&list=shield&vocation='.$vocation.'">Shielding</a></td>
+															
+														</tr>';
+														if($list == "distance")
+														$main_content .= '<tr style="background-color:'.$config['site']['darkborder'].';">
+															<td class="LabelV">Distance <img src="images/tick.png" width="12" height="12"></td>
+															
+														</tr>';
+														else
+														$main_content .= '<tr style="background-color:'.$config['site']['darkborder'].';">
+															<td class="LabelV"><A HREF="?subtopic=highscores&list=distance&vocation='.$vocation.'">Distance</a></td>
+															
+														</tr>';
+														if($list == "club")
+														$main_content .= '<tr style="background-color:'.$config['site']['lightborder'].';">
+															<td class="LabelV">Club <img src="images/tick.png" width="12" height="12"></td>
+															
+														</tr>';
+														else
+														$main_content .= '<tr style="background-color:'.$config['site']['lightborder'].';">
+															<td class="LabelV"><A HREF="?subtopic=highscores&list=club&vocation='.$vocation.'">Club</a></td>
+															
+														</tr>';
+														if($list == "sword")
+														$main_content .= '<tr style="background-color:'.$config['site']['darkborder'].';">
+															<td class="LabelV">Sword <img src="images/tick.png" width="12" height="12"></td>
+															
+														</tr>';
+														else
+														$main_content .= '<tr style="background-color:'.$config['site']['darkborder'].';">
+															<td class="LabelV"><A HREF="?subtopic=highscores&list=sword&vocation='.$vocation.'">Sword</a></td>
+															
+														</tr>';
+														if($list == "axe")
+														$main_content .= '<tr style="background-color:'.$config['site']['lightborder'].';">
+															<td class="LabelV">Axe <img src="images/tick.png" width="12" height="12"></td>
+															
+														</tr>';
+														else
+														$main_content .= '<tr style="background-color:'.$config['site']['lightborder'].';">
+															<td class="LabelV"><A HREF="?subtopic=highscores&list=axe&vocation='.$vocation.'">Axe</a></td>
+															
+														</tr>';
+														if($list == "fist")
+														$main_content .= '<tr style="background-color:'.$config['site']['darkborder'].';">
+															<td class="LabelV">Fist <img src="images/tick.png" width="12" height="12"></td>
+															
+														</tr>';
+														else
+														$main_content .= '<tr style="background-color:'.$config['site']['darkborder'].';">
+															<td class="LabelV"><A HREF="?subtopic=highscores&list=fist&vocation='.$vocation.'">Fist</a></td>
+															
+														</tr>';
+														if($list == "fishing")
+														$main_content .= '<tr style="background-color:'.$config['site']['lightborder'].';">
+															<td class="LabelV">Fishing <img src="images/tick.png" width="12" height="12"></td>
+															
+														</tr>';
+														else
+														$main_content .= '<tr style="background-color:'.$config['site']['lightborder'].';">
+															<td class="LabelV"><A HREF="?subtopic=highscores&list=fishing&vocation='.$vocation.'">Fishing</a></td>
+															
+														</tr>';
+														$main_content .= '
 													</tbody></table>
 												</div>
 											</div>
@@ -188,7 +256,7 @@ $main_content .= '</TABLE></TD><TD WIDTH=5%></TD><TD WIDTH=15% VALIGN=top ALIGN=
 							<span class="CaptionEdgeRightTop" style="background-image:url(./layouts/tibiarl/images/content/box-frame-edge.gif);"></span>
 							<span class="CaptionBorderTop" style="background-image:url(./layouts/tibiarl/images/content/table-headline-border.gif);"></span> 
 							<span class="CaptionVerticalLeft" style="background-image:url(./layouts/tibiarl/images/content/box-frame-vertical.gif);"></span>				
-							<div class="Text" style="padding-left:0px;padding-right:0px;font-size:8pt;">Choose a Vocation</div>
+							<div class="Text" style="padding-left:2px;padding-right:0px;font-size:8pt;">Filter by Vocation</div>
 							<span class="CaptionVerticalRight" style="background-image:url(./layouts/tibiarl/images/content/box-frame-vertical.gif);"></span>
 							<span class="CaptionBorderBottom" style="background-image:url(./layouts/tibiarl/images/content/table-headline-border.gif);"></span> 
 							<span class="CaptionEdgeLeftBottom" style="background-image:url(./layouts/tibiarl/images/content/box-frame-edge.gif);"></span>
@@ -213,14 +281,32 @@ $main_content .= '</TABLE></TD><TD WIDTH=5%></TD><TD WIDTH=15% VALIGN=top ALIGN=
 function selecturl(s) {
 	var gourl = s.options[s.selectedIndex].value;	window.top.location.href = gourl;
 }
-</SCRIPT>
+</SCRIPT>';
 
+if($vocation > 0)
+{
+$main_content .= '<FORM>
 
-<FORM>
+<SELECT class="textbox" name="urljump" OnChange="selecturl(this)" style="width:95px;">
+<OPTION value="">'.htmlspecialchars($vocation_name[$vocation]).'s</OPTION>
+<option value="?subtopic=highscores&list='.urlencode($list).'&vocation=1">Sorcerer</option>
+<option value="?subtopic=highscores&list='.urlencode($list).'&vocation=2">Druid</option>
+<option value="?subtopic=highscores&list='.urlencode($list).'&vocation=3">Paladin</option>
+<option value="?subtopic=highscores&list='.urlencode($list).'&vocation=4">Knight</option>
+<option value="?subtopic=highscores&list='.urlencode($list).'&vocation=5">Master Sorcerer</option>
+<option value="?subtopic=highscores&list='.urlencode($list).'&vocation=6">Elder Druid</option>
+<option value="?subtopic=highscores&list='.urlencode($list).'&vocation=7">Royal Paladin</option>
+<option value="?subtopic=highscores&list='.urlencode($list).'&vocation=8">Elite Knight</option>
+<option value="?subtopic=highscores&list='.urlencode($list).'">*All Vocations</option>
+</SELECT>
+</FORM>';
+}
+else
+{
+$main_content .= '<FORM>
 
 <SELECT class="textbox" name="urljump" OnChange="selecturl(this)" style="width:95px;">
 <OPTION value="">Select</OPTION>
-<option value="?subtopic=highscores&list='.urlencode($list).'">All</option>
 <option value="?subtopic=highscores&list='.urlencode($list).'&vocation=1">Sorcerer</option>
 <option value="?subtopic=highscores&list='.urlencode($list).'&vocation=2">Druid</option>
 <option value="?subtopic=highscores&list='.urlencode($list).'&vocation=3">Paladin</option>
@@ -230,9 +316,10 @@ function selecturl(s) {
 <option value="?subtopic=highscores&list='.urlencode($list).'&vocation=7">Royal Paladin</option>
 <option value="?subtopic=highscores&list='.urlencode($list).'&vocation=8">Elite Knight</option>
 </SELECT>
-</FORM>
+</FORM>';
+}
 
-													</tbody></table>
+													$main_content .= '</tbody></table>
 												</div>
 											</div>
 											<div class="TableShadowContainer">
